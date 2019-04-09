@@ -1,24 +1,10 @@
-from typing import Dict, List
-
-RAINDROP_FACTORS: Dict[int, str] = {
-    3: 'Pling',
-    5: 'Plang',
-    7: 'Plong'
-}
-
-
 def raindrops(number: int) -> str:
     """Convert a number to raindrop-speak."""
-    raindrop_factors = _get_raindrop_factors(number)
-    drops = [RAINDROP_FACTORS.get(factor) for factor in raindrop_factors]
-    return ''.join(map(str, drops)) or str(number)
-
-
-def _get_factors(number: int) -> List[int]:
-    """Return all factors of a given integer."""
-    return [i for i in range(1, number + 1) if number % i == 0]
-
-
-def _get_raindrop_factors(number: int) -> List[int]:
-    """Return all raindrop factors of a given integer."""
-    return [i for i in _get_factors(number) if i in RAINDROP_FACTORS]
+    drops = []
+    if not number % 3:  # if the number has 3 as a factor
+        drops.append('Pling')
+    if not number % 5:  # if the number has 5 as a factor
+        drops.append('Plang')
+    if not number % 7:  # if the number has 7 as a factor
+        drops.append('Plong')
+    return ''.join(drops) or str(number)
