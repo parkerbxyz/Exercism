@@ -10,4 +10,4 @@ class Drops(IntEnum):
 def raindrops(number: int) -> str:
     """Convert a number to raindrop-speak."""
     drops = [drop.name for drop in Drops if not number % drop.value]
-    return ''.join(map(str, drops)) or str(number)
+    return ''.join(drops) or str(number)
