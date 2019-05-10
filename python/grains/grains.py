@@ -12,9 +12,9 @@ def validate_range(func):
 
 @validate_range
 def on_square(number: int) -> int:
-    return (2 ** number - 1) - (2 ** (number - 1) - 1)
+    return 1 << (number - 1)
 
 
 @validate_range
 def total_after(number: int) -> int:
-    return 2 ** number - 1
+    return (1 << number) - 1
