@@ -1,7 +1,7 @@
-from enum import IntEnum
+from enum import Enum
 
 
-class Drops(IntEnum):
+class Drops(Enum):
     Pling = 3
     Plang = 5
     Plong = 7
