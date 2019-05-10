@@ -6,6 +6,6 @@ def hey(phrase: str) -> str:
                 if phrase.isupper() else "Sure.")
     if phrase.isupper():
         return "Whoa, chill out!"
-    if len(phrase) == 0:
+    if not phrase:
         return "Fine. Be that way!"
     return "Whatever."
