@@ -3,7 +3,7 @@
 from typing import List
 
 
-DAYS = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth',
+DAYS = [None, 'first', 'second', 'third', 'fourth', 'fifth', 'sixth',
         'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth']
 
 GIFTS = ['a Partridge in a Pear Tree',
@@ -19,16 +19,14 @@ GIFTS = ['a Partridge in a Pear Tree',
          'eleven Pipers Piping',
          'twelve Drummers Drumming']
 
-VERSE = 'On the {} day of Christmas my true love gave to me: {}.'
-
 
 def verse(number: int) -> str:
     """Return a single verse from 'The Twelve Days of Christmas' song."""
-    day = number - 1
     gifts = GIFTS[number - 1:: -1]
     if number > 1:
         gifts[-1] = 'and ' + gifts[-1]
-    return VERSE.format(DAYS[day], ', '.join(gifts))
+    return f"On the {DAYS[number]} day of Christmas my true love gave to me: "\
+           f"{', '.join(gifts)}."
 
 
 def recite(start_verse: int, end_verse: int) -> List[str]:
