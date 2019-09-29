@@ -10,7 +10,7 @@ class Hangman:
         self.status = STATUS_ONGOING
         self.word = word
         self.masked_word = '_' * len(word)
-        self.guesses = []
+        self.guesses: list = []
 
     def guess(self, char: str):
         if self.status != STATUS_ONGOING:
