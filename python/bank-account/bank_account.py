@@ -1,12 +1,11 @@
-from threading import Lock
-
 from dataclasses import dataclass
+from threading import Lock
 
 
 @dataclass
 class BankAccount:
     active: bool = False
-    balance: int = None
+    balance: int = 0
     lock: object = Lock()
 
     def get_balance(self):
