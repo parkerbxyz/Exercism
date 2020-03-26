@@ -7,7 +7,7 @@ class Drops(Enum):
     Plong = 7
 
 
-def raindrops(number: int) -> str:
+def convert(number: int) -> str:
     """Convert a number to raindrop-speak."""
     drops = [drop.name for drop in Drops if not number % drop.value]
     return ''.join(drops) or str(number)
