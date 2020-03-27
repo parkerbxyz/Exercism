@@ -21,7 +21,7 @@ def say(number):
         hundred = int(number / 100)
         remainder = number % 100
         return ONES[hundred] + ' hundred' + (
-            f" and {say(remainder)}" if remainder else '')
+            f" {say(remainder)}" if remainder else '')
     elif number < 1000000:
         thousand = int(number / 1000)
         remainder = number % 1000
