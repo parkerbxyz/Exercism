@@ -7,33 +7,29 @@ TENS = ['zero', 'ten', 'twenty', 'thirty', 'forty',
         'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
 
 
-def say(number):
-    if number < 0 or number >= 1e12:
+def say(number: int) -> str:
+    """Spells out a given number from 0 to 999,999,999,999 in English."""
+    if number not in range(int(1e12)):
         raise ValueError("Number must be between 0 and 999,999,999,999!")
     if number < 20:
         return ONES[number]
     elif number < 100:
-        ten = int(number / 10)
-        remainder = number % 10
+        ten, remainder = divmod(number, 10)
         return TENS[ten] + (
             f"-{say(remainder)}" if remainder else '')
     elif number < 1000:
-        hundred = int(number / 100)
-        remainder = number % 100
+        hundred, remainder = divmod(number, 100)
         return ONES[hundred] + ' hundred' + (
             f" {say(remainder)}" if remainder else '')
     elif number < 1000000:
-        thousand = int(number / 1000)
-        remainder = number % 1000
+        thousand, remainder = divmod(number, 1000)
         return say(thousand) + ' thousand' + (
             f" {say(remainder)}" if remainder else '')
     elif number < 1000000000:
-        million = int(number / 1e6)
-        remainder = int(number % 1e6)
+        million, remainder = divmod(number, 1000000)
         return say(million) + ' million' + (
             f" {say(remainder)}" if remainder else '')
     else:
-        billion = int(number / 1e9)
-        remainder = int(number % 1e9)
+        billion, remainder = divmod(number, 1000000000)
         return say(billion) + ' billion' + (
             f" {say(remainder)}" if remainder else '')
