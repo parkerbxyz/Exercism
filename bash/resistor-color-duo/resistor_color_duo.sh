@@ -1,24 +1,47 @@
 #!/usr/bin/env bash
+#
+# Takes color names as input and outputs a two digit resistance value.
 
-# The following comments should help you get started:
-# - Bash is flexible. You may use functions or write a "raw" script.
-#
-# - Complex code can be made easier to read by breaking it up
-#   into functions, however this is sometimes overkill in bash.
-#
-# - You can find links about good style and other resources
-#   for Bash in './README.md'. It came with this exercise.
-#
-#   Example:
-#   # other functions here
-#   # ...
-#   # ...
-#
-#   main () {
-#     # your main function code here
-#   }
-#
-#   # call main with all of the positional arguments
-#   main "$@"
-#
-# *** PLEASE REMOVE THESE COMMENTS BEFORE SUBMITTING YOUR SOLUTION ***
+colors=("$@")
+
+# Iterate through the first two elements of $color
+for color in "${colors[@]:0:2}"; do
+    case "$color" in
+    black)
+        resistance_value+=0
+        ;;
+    brown)
+        resistance_value+=1
+        ;;
+    red)
+        resistance_value+=2
+        ;;
+    orange)
+        resistance_value+=3
+        ;;
+    yellow)
+        resistance_value+=4
+        ;;
+    green)
+        resistance_value+=5
+        ;;
+    blue)
+        resistance_value+=6
+        ;;
+    violet)
+        resistance_value+=7
+        ;;
+    grey)
+        resistance_value+=8
+        ;;
+    white)
+        resistance_value+=9
+        ;;
+    *)
+        resistance_value="invalid color: $color"
+        break
+        ;;
+    esac
+done
+
+echo "$resistance_value"
