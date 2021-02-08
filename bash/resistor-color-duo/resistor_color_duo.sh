@@ -1,47 +1,24 @@
 #!/usr/bin/env bash
 #
-# Takes color names as input and outputs a two digit resistance value.
+# Take two color names as input and output a two digit resistance value.
 
-colors=("$@")
-
-# Iterate through the first two elements of $color
-for color in "${colors[@]:0:2}"; do
+for color in "$1" "$2"; do
     case "$color" in
-    black)
-        resistance_value+=0
-        ;;
-    brown)
-        resistance_value+=1
-        ;;
-    red)
-        resistance_value+=2
-        ;;
-    orange)
-        resistance_value+=3
-        ;;
-    yellow)
-        resistance_value+=4
-        ;;
-    green)
-        resistance_value+=5
-        ;;
-    blue)
-        resistance_value+=6
-        ;;
-    violet)
-        resistance_value+=7
-        ;;
-    grey)
-        resistance_value+=8
-        ;;
-    white)
-        resistance_value+=9
-        ;;
+    black)  resistance+=0 ;;
+    brown)  resistance+=1 ;;
+    red)    resistance+=2 ;;
+    orange) resistance+=3 ;;
+    yellow) resistance+=4 ;;
+    green)  resistance+=5 ;;
+    blue)   resistance+=6 ;;
+    violet) resistance+=7 ;;
+    grey)   resistance+=8 ;;
+    white)  resistance+=9 ;;
     *)
-        resistance_value="invalid color: $color"
+        resistance="invalid color: $color"
         break
         ;;
     esac
 done
 
-echo "$resistance_value"
+echo "$resistance"
