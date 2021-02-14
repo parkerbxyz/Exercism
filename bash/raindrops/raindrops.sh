@@ -14,4 +14,4 @@ if (( number % 7 == 0 )); then
   result+="Plong"
 fi
 
-echo ${result:-$number}
+echo "${result:-$number}"
