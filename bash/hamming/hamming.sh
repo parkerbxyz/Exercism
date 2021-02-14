@@ -1,24 +1,27 @@
 #!/usr/bin/env bash
+#
+# Calculate the Hamming Distance between two DNA strands
 
-# The following comments should help you get started:
-# - Bash is flexible. You may use functions or write a "raw" script.
-#
-# - Complex code can be made easier to read by breaking it up
-#   into functions, however this is sometimes overkill in bash.
-#
-# - You can find links about good style and other resources
-#   for Bash in './README.md'. It came with this exercise.
-#
-#   Example:
-#   # other functions here
-#   # ...
-#   # ...
-#
-#   main () {
-#     # your main function code here
-#   }
-#
-#   # call main with all of the positional arguments
-#   main "$@"
-#
-# *** PLEASE REMOVE THESE COMMENTS BEFORE SUBMITTING YOUR SOLUTION ***
+strand_1=$1
+strand_2=$2
+
+# Exit if the number of input parameters is not 2
+[[ "$#" != 2 ]] && {
+  echo "Usage: hamming.sh <string1> <string2>"
+  exit 1
+}
+
+# Exit if the strands are not of equal length
+[[ "${#strand_1}" != "${#strand_2}" ]] && {
+  echo "left and right strands must be of equal length"
+  exit 1
+}
+
+hamming_distance=0
+strand_length="${#strand_1}"
+for ((i = 0; i < strand_length; i++)); do
+  # Compare the two strands of DNA and count the differences between them
+  [[ "${strand_1:$i:1}" != "${strand_2:$i:1}" ]] && ((hamming_distance++))
+done
+
+echo "$hamming_distance"
