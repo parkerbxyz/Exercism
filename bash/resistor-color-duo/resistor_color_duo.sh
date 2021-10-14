@@ -15,8 +15,8 @@ for color in "$1" "$2"; do
     grey)   resistance+=8 ;;
     white)  resistance+=9 ;;
     *)
-        resistance="invalid color: $color"
-        break
+        echo "invalid color: $color"
+        exit 1
         ;;
     esac
 done
