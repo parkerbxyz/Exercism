@@ -1,5 +1,7 @@
-# Exercism.io exercises
-This repository contains [my work](https://exercism.io/profiles/parkerbxyz) on solving the programming exercises on [exercism.io](https://exercism.io).
+# Exercism exercises
+
+This repository contains [my solutions](https://exercism.org/profiles/parkerbxyz/solutions) to programming exercises on [exercism.org](https://exercism.org).
 
 ## License
+
 This repository uses the [MIT License](/LICENSE).
